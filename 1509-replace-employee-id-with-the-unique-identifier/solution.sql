@@ -1,2 +1,2 @@
-# Write your MySQL query statement below
-select unique_id, name from EmployeeUni RIGHT JOIN Employees ON Employees.id = EmployeeUni.id;
+-- Write your PostgreSQL query statement below
+select eu.unique_id, e.name from employees e LEFT join employeeuni eu on e.id = eu.id 
