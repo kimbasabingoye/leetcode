@@ -1,2 +1,4 @@
--- Write your PostgreSQL query statement below
-SELECT customer_id, count(*) as count_no_trans from visits v where v.visit_id not in (select visit_id from transactions) GROUP BY customer_id
+# Write your MySQL query statement below
+SELECT v.customer_id, COUNT(v.visit_id) as count_no_trans FROM visits v LEFT OUTER JOIN transactions t ON v.visit_id = t.visit_id
+WHERE t.transaction_id IS NULL
+GROUP BY v.customer_id
