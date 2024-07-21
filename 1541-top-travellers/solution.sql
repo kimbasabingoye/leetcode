@@ -1,6 +1,13 @@
--- Write your PostgreSQL query statement below
-WITH T AS
-(SELECT u.id, COALESCE(SUM(distance), 0) as travelled_distance FROM users u LEFT JOIN rides r ON u.id = r.user_id
-GROUP BY u.id)
-SELECT u.name, t.travelled_distance FROM users u JOIN t ON u.id = t.id
-ORDER BY travelled_distance DESC, name ASC
+# Write your MySQL query statement below
+SELECT 
+    u.name, 
+    COALESCE(SUM(distance),0) AS travelled_distance
+FROM 
+    Users u
+LEFT JOIN 
+    Rides r
+ON 
+    u.id = r.user_id
+GROUP BY 
+    u.id
+ORDER BY 2 DESC, 1 ASC
