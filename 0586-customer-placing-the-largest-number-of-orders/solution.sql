@@ -1,7 +1,6 @@
--- Write your PostgreSQL query statement below
-WITH T AS
-(SELECT customer_number, COUNT(customer_number) as cnt_order
-FROM orders
-GROUP BY customer_number)
-SELECT customer_number FROM T
-WHERE cnt_order = (SELECT MAX(cnt_order) FROM T)
+# Write your MySQL query statement below
+SELECT customer_number
+FROM orders o
+GROUP BY customer_number
+ORDER BY COUNT(order_number) DESC
+LIMIT 1
